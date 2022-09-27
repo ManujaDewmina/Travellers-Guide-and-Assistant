@@ -17,6 +17,7 @@
         android:paddingStart="@dimen/_8sdp"
         android:paddingEnd="@dimen/_8sdp"
         app:layout_constraintTop_toTopOf="parent">
+
         <ImageView
             android:id="@+id/imageBack"
             android:layout_width="@dimen/_25sdp"
@@ -29,59 +30,59 @@
             android:id="@+id/textTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_weight="1"
             android:fontFamily="@font/sf_bold"
             android:includeFontPadding="false"
-            android:textColor="@color/colorTextIcons"
-            android:textSize="@dimen/_15ssp"
             android:textAlignment="textEnd"
-            android:layout_marginEnd="@dimen/_8sdp"/>
+            android:textColor="@color/colorTextIcons"
+            android:textSize="@dimen/_12ssp" />
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/head"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/layoutHeader"
-        android:id="@+id/head"
-        android:orientation="horizontal"
-        android:background="@color/colorTextIcons">
+        android:background="@color/colorTextIcons"
+        android:orientation="horizontal">
+
         <LinearLayout
             android:id="@+id/searchBox"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_30sdp"
-            android:background="@drawable/border"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_height="@dimen/_40sdp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:layout_marginStart="@dimen/_20sdp"
-            android:paddingStart="@dimen/_5sdp"
-            android:paddingEnd="@dimen/_5sdp"
-            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_margin="@dimen/_10sdp"
             app:layout_constraintTop_toBottomOf="@id/layoutHeader">
 
             <EditText
-                android:background="@null"
-                android:hint="@string/enter_location_name_here"
-                android:id="@+id/searchCityText"
+                android:background="@drawable/border"
+                android:hint="Enter location name"
+                android:id="@+id/textSearch1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginStart="@dimen/_10sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:paddingStart="@dimen/_10sdp"
                 android:importantForAutofill="no"
                 android:imeOptions="actionDone"
                 android:fontFamily="@font/sf_regular"
                 android:includeFontPadding="false"
                 android:textColor="@color/colorPrimaryText"
-                android:textSize="@dimen/_15ssp"
-                android:layout_marginEnd="@dimen/_8sdp"/>
-            <ImageView
-                android:id="@+id/searchCityBtn"
-                android:layout_width="@dimen/_25sdp"
-                android:layout_height="@dimen/_25sdp"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/ic_search" />
+                android:textSize="@dimen/_12ssp" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_40sdp"
+                android:text="@string/search"
+                android:textSize="@dimen/_10ssp"
+                android:id="@+id/buttonSearch1"
+                android:layout_marginStart="@dimen/_10sdp"/>
+
+
 
         </LinearLayout>
     </LinearLayout>
@@ -188,7 +189,7 @@
                 android:textAllCaps="true"
                 android:textColor="@color/colorTextIcons"
 
-                android:textSize="@dimen/_12sdp" />
+                android:textSize="@dimen/_10sdp" />
 
             <ImageView
                 android:id="@+id/weatherIcon"

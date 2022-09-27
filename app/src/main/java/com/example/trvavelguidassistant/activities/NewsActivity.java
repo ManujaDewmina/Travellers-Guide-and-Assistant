@@ -7,6 +7,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.SearchView;
@@ -36,8 +37,8 @@ public class NewsActivity extends AppCompatActivity {
     final String API_NEWS = "dbbe27a861074c01bd457ab71641af12";
     NewsAdapter newsAdapter;
     List<Articles> articles = new ArrayList<>();
-    EditText textNewsSearch;
-    ImageView imageNewsSearch;
+    EditText textSearch3;
+    Button buttonSearch3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +64,8 @@ public class NewsActivity extends AppCompatActivity {
         SRNews = findViewById(R.id.SRNews);
         recyclerViewNews = findViewById(R.id.recyclerViewNews);
 
-        textNewsSearch = findViewById(R.id.textNewsSearch);
-        imageNewsSearch = findViewById(R.id.imageNewsSearch);
+        textSearch3 = findViewById(R.id.textSearch3);
+        buttonSearch3 = findViewById(R.id.buttonSearch3);
 
         recyclerViewNews.setLayoutManager(new LinearLayoutManager(this));
         String country = getCountry();
@@ -78,19 +79,19 @@ public class NewsActivity extends AppCompatActivity {
 
         retrieveJson("",country,API_NEWS);
 
-        imageNewsSearch.setOnClickListener(new View.OnClickListener() {
+        buttonSearch3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!textNewsSearch.getText().toString().equals("")){
+                if(!textSearch3.getText().toString().equals("")){
 
                     SRNews.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
                         @Override
                         public void onRefresh() {
-                            retrieveJson(textNewsSearch.getText().toString(),country,API_NEWS);
+                            retrieveJson(textSearch3.getText().toString(),country,API_NEWS);
                         }
                     });
 
-                    retrieveJson(textNewsSearch.getText().toString(),country,API_NEWS);
+                    retrieveJson(textSearch3.getText().toString(),country,API_NEWS);
 
                 }else{
                     SRNews.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -109,7 +110,7 @@ public class NewsActivity extends AppCompatActivity {
     public void retrieveJson(String query, String country , String apikey){
         SRNews.setRefreshing(true);
         Call<Headlines> call;
-        if(!textNewsSearch.getText().toString().equals("")){
+        if(!textSearch3.getText().toString().equals("")){
             call = NewsApiClient.getInstance().getApi().getSpecificData(query,apikey);
         }else{
             call = NewsApiClient.getInstance().getApi().getHeadlines(country,apikey);

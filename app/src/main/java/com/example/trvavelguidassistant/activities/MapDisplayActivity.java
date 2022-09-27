@@ -8,6 +8,7 @@ import android.location.Geocoder;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -44,7 +45,7 @@ public class MapDisplayActivity extends AppCompatActivity implements OnMapReadyC
     MapView mapView;
     GoogleMap mGoogleMap;
     EditText textSearch;
-    ImageView imageSearch;
+    Button buttonSearch;
     TextView textDefaults,textSatellite,textTerrain;
 
     @Override
@@ -67,10 +68,10 @@ public class MapDisplayActivity extends AppCompatActivity implements OnMapReadyC
         imageBack.setOnClickListener(v -> onBackPressed());
         mapView = findViewById(R.id.map_view);
         textSearch = findViewById(R.id.textSearch);
-        imageSearch = findViewById(R.id.imageSearch);
         textDefaults =findViewById(R.id.textDefaults);
         textSatellite = findViewById(R.id.textSatellite);
         textTerrain = findViewById(R.id.textTerrain);
+        buttonSearch = findViewById(R.id.buttonSearch);
 
 //        textSearch.setFocusable(false);
 
@@ -97,7 +98,7 @@ public class MapDisplayActivity extends AppCompatActivity implements OnMapReadyC
         if (per) {
             mapView.getMapAsync(this);
             mapView.onCreate(savedInstanceState);
-            imageSearch.setOnClickListener(this::geoLocate);
+            buttonSearch.setOnClickListener(this::geoLocate);
         }else{
             requestMapPermissions();
         }

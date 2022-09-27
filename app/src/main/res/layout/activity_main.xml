@@ -27,7 +27,7 @@
             android:text="@string/user_name"
             android:includeFontPadding="false"
             android:textColor="@color/colorTextIcons"
-            android:textSize="@dimen/_15ssp"
+            android:textSize="@dimen/_12ssp"
             android:layout_marginEnd="@dimen/_8sdp"/>
 
         <TextView
@@ -39,7 +39,7 @@
             android:includeFontPadding="false"
             android:text="@string/sign_out"
             android:textColor="@color/colorBackground"
-            android:textSize="@dimen/_13ssp"/>
+            android:textSize="@dimen/_12ssp"/>
 
     </LinearLayout>
 
@@ -99,7 +99,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/map_service"
                         android:fontFamily="@font/sf_bold"
-                        android:textSize="@dimen/_11sdp"
+                        android:textSize="@dimen/_9sdp"
                         android:textAllCaps="true"
                         android:textColor="@color/colorPrimaryText"/>
                 </LinearLayout>
@@ -131,7 +131,7 @@
                         android:layout_marginTop="@dimen/_5sdp"
                         android:layout_height="wrap_content"
                         android:text="@string/weather"
-                        android:textSize="@dimen/_11sdp"
+                        android:textSize="@dimen/_9sdp"
                         android:fontFamily="@font/sf_bold"
                         android:textAllCaps="true"
                         android:textColor="@color/colorPrimaryText"/>
@@ -174,7 +174,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/travel_log"
                             android:fontFamily="@font/sf_bold"
-                            android:textSize="@dimen/_11sdp"
+                            android:textSize="@dimen/_9sdp"
                             android:textAllCaps="true"
                             android:textColor="@color/colorPrimaryText"/>
                     </LinearLayout>
@@ -205,7 +205,7 @@
                             android:layout_marginTop="@dimen/_5sdp"
                             android:layout_height="wrap_content"
                             android:text="@string/scheduler"
-                            android:textSize="@dimen/_11sdp"
+                            android:textSize="@dimen/_9sdp"
                             android:fontFamily="@font/sf_bold"
                             android:textAllCaps="true"
                             android:textColor="@color/colorPrimaryText"/>
@@ -251,7 +251,7 @@
                             android:layout_gravity="center"
                             android:text="News"
                             android:fontFamily="@font/sf_bold"
-                            android:textSize="@dimen/_11sdp"
+                            android:textSize="@dimen/_9sdp"
                             android:textAllCaps="true"
                             android:textColor="@color/colorPrimaryText"/>
                     </LinearLayout>
@@ -283,7 +283,7 @@
                             android:layout_marginTop="@dimen/_5sdp"
                             android:layout_height="wrap_content"
                             android:text="@string/translator"
-                            android:textSize="@dimen/_11sdp"
+                            android:textSize="@dimen/_9sdp"
                             android:fontFamily="@font/sf_bold"
                             android:textAllCaps="true"
                             android:textColor="@color/colorPrimaryText"/>
@@ -403,7 +403,7 @@
                             android:layout_marginTop="@dimen/_5sdp"
                             android:layout_height="wrap_content"
                             android:text="@string/settings"
-                            android:textSize="@dimen/_11sdp"
+                            android:textSize="@dimen/_9sdp"
                             android:fontFamily="@font/sf_bold"
                             android:textAllCaps="true"
                             android:textColor="@color/colorPrimaryText"/>

@@ -34,7 +34,7 @@
             android:fontFamily="@font/sf_bold"
             android:includeFontPadding="false"
             android:textColor="@color/colorTextIcons"
-            android:textSize="@dimen/_15ssp"
+            android:textSize="@dimen/_12ssp"
             android:textAlignment="textEnd"
             android:layout_marginEnd="@dimen/_8sdp"/>
     </LinearLayout>
@@ -189,7 +189,7 @@
                             android:id="@+id/identifyLangBtn"
                             android:background="@null"
                             android:text="@string/identify_language"
-                            android:textSize="@dimen/_12sdp"
+                            android:textSize="@dimen/_10sdp"
                             android:textAllCaps="true"/>
 
                 </LinearLayout>

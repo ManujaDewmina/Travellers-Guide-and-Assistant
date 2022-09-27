@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,7 +24,7 @@ import org.json.JSONObject;
 
 public class WeatherCityActivity extends AppCompatActivity {
 
-    private EditText searchCityText;
+    private EditText textSearch1;
 
     final String APP_ID = "88e2d41f1558827307e8942719daeeed";
     final String WEATHER_URL = "https://api.openweathermap.org/data/2.5/weather";
@@ -67,17 +68,17 @@ public class WeatherCityActivity extends AppCompatActivity {
         countryCode= findViewById(R.id.countryCode);
         timeZone= findViewById(R.id.timeZone);
 
-        ImageView searchCityBtn = findViewById(R.id.searchCityBtn);
-        searchCityText = findViewById(R.id.searchCityText);
+        Button buttonSearch1 = findViewById(R.id.buttonSearch1);
+        textSearch1 = findViewById(R.id.textSearch1);
 
-        searchCityBtn.setOnClickListener(v -> {
-            String city = searchCityText.getText().toString();
+        buttonSearch1.setOnClickListener(v -> {
+            String city = textSearch1.getText().toString();
             getWeatherForNewCity(city);
         });
 
         TextView forecast = findViewById(R.id.forecast);
         forecast.setOnClickListener(v -> {
-            String city = searchCityText.getText().toString();
+            String city = textSearch1.getText().toString();
             Intent intent = new Intent(WeatherCityActivity.this, ForcastCityWeatherActivity.class);
             //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.putExtra("city",city);

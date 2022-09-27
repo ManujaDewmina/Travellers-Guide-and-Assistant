@@ -35,7 +35,7 @@
             android:fontFamily="@font/sf_bold"
             android:includeFontPadding="false"
             android:textColor="@color/colorTextIcons"
-            android:textSize="@dimen/_15ssp"
+            android:textSize="@dimen/_12ssp"
             android:textAlignment="textEnd"
             android:layout_marginEnd="@dimen/_8sdp"/>
     </LinearLayout>
@@ -71,50 +71,52 @@
 
     </LinearLayout>
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_marginEnd="@dimen/_20sdp"
-        android:layout_marginStart="@dimen/_20sdp"
-        app:cardCornerRadius="@dimen/_15sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:id="@+id/searchBox"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_30sdp"
-        android:background="@drawable/border"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingStart="@dimen/_5sdp"
-        android:paddingEnd="@dimen/_5sdp"
-        app:layout_constraintTop_toBottomOf="@id/layoutHeader">
 
-        <EditText
-            android:background="@null"
-            android:hint="@string/enter_location_name_here"
-            android:id="@+id/textNewsSearch"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+        <LinearLayout
+            android:id="@+id/searchBox"
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginStart="@dimen/_10sdp"
-            android:importantForAutofill="no"
-            android:imeOptions="actionDone"
-            android:fontFamily="@font/sf_regular"
-            android:includeFontPadding="false"
-            android:textColor="@color/colorPrimaryText"
-            android:textSize="@dimen/_15ssp"
-            android:layout_marginEnd="@dimen/_8sdp"/>
-        <ImageView
-            android:id="@+id/imageNewsSearch"
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_search" />
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/layoutHeader">
 
-    </LinearLayout>
-    </androidx.cardview.widget.CardView>
+            <EditText
+                android:background="@drawable/border2"
+                android:hint="search"
+                android:id="@+id/textSearch3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:paddingStart="@dimen/_10sdp"
+
+                android:importantForAutofill="no"
+                android:imeOptions="actionDone"
+                android:fontFamily="@font/sf_regular"
+                android:includeFontPadding="false"
+                android:textColor="@color/colorPrimaryText"
+                android:textSize="@dimen/_12ssp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_40sdp"
+                android:text="@string/search"
+                android:textSize="@dimen/_10ssp"
+                android:id="@+id/buttonSearch3"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"/>
+
+
+
+        </LinearLayout>
+
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"

@@ -34,7 +34,7 @@
             android:fontFamily="@font/sf_bold"
             android:includeFontPadding="false"
             android:textColor="@color/colorTextIcons"
-            android:textSize="@dimen/_15ssp"
+            android:textSize="@dimen/_12ssp"
             android:textAlignment="textEnd"
             android:layout_marginEnd="@dimen/_8sdp"/>
     </LinearLayout>
@@ -207,7 +207,7 @@
                         android:includeFontPadding="false"
                         android:text="@string/update_user_details"
                         android:textColor="@color/colorTextIcons"
-                        android:textSize="@dimen/_11ssp"
+                        android:textSize="@dimen/_10ssp"
                         app:layout_constraintTop_toBottomOf="@id/cardDetails" />
 
                     <ProgressBar

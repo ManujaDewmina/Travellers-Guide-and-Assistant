@@ -33,7 +33,7 @@
             android:includeFontPadding="false"
             android:text="@string/sign_up"
             android:textColor="@color/colorTextIcons"
-            android:textSize="@dimen/_15ssp"/>
+            android:textSize="@dimen/_12ssp"/>
 
     </LinearLayout>
 
@@ -180,7 +180,7 @@
                     android:includeFontPadding="false"
                     android:text="@string/sign_in"
                     android:textColor="@color/colorTextIcons"
-                    android:textSize="@dimen/_12ssp"/>
+                    android:textSize="@dimen/_10ssp"/>
 
                 <ProgressBar
                     android:id="@+id/signInProgressBar"
