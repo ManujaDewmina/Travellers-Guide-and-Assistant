@@ -64,19 +64,19 @@
                 android:textAllCaps="false"
                 android:textColor="@color/colorPrimaryText"
                 android:textSize="@dimen/_15sdp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_20sdp"
-                android:fontFamily="@font/sf_regular"
-                android:gravity="center"
-                android:text="@string/all_times_are_shown_according_that_place_gmt_time_to_convert_it_to_your_time_please_add_the_time_zone"
-                android:textAllCaps="false"
-                android:textColor="@color/colorPrimaryText"
-                android:textSize="@dimen/_9sdp" />
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginStart="@dimen/_20sdp"-->
+<!--                android:layout_marginTop="@dimen/_10sdp"-->
+<!--                android:layout_marginEnd="@dimen/_20sdp"-->
+<!--                android:fontFamily="@font/sf_regular"-->
+<!--                android:gravity="center"-->
+<!--                android:text="@string/all_times_are_shown_according_that_place_gmt_time_to_convert_it_to_your_time_please_add_the_time_zone"-->
+<!--                android:textAllCaps="false"-->
+<!--                android:textColor="@color/colorPrimaryText"-->
+<!--                android:textSize="@dimen/_9sdp" />-->
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

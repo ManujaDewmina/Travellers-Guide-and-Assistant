@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_background"
-    tools:context=".activities.AddSocialMediaActivity">
+    tools:context=".activities.SocialMediaAccountActivity">
 
     <LinearLayout
         android:id="@+id/layoutHeader"
@@ -39,6 +39,18 @@
             android:layout_marginEnd="@dimen/_8sdp"/>
     </LinearLayout>
 
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/cardView2"
+        app:layout_constraintTop_toBottomOf="@id/layoutHeader">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,15 +59,14 @@
         android:layout_marginTop="@dimen/_10sdp"
         app:layout_constraintTop_toBottomOf="@+id/layoutHeader"
         tools:ignore="UseCompoundDrawables"
-        android:id="@+id/nameTag">
+        android:id="@+id/pp">
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/userPic"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_gravity="center"
-            android:layout_marginEnd="4dp"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/travelmate" />
+            android:src="@drawable/ic_person" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -63,137 +74,24 @@
             android:layout_gravity="center"
             android:layout_marginStart="4dp"
             android:fontFamily="@font/sf_bold"
-            android:text="TravelMate"
+            android:text="name"
             android:textColor="@color/colorPrimaryText"
             android:textSize="23sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:id="@+id/profileUserName"/>
 
     </LinearLayout>
 
-    <androidx.cardview.widget.CardView
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
-        app:cardCornerRadius="@dimen/_15sdp"
-        app:layout_constraintTop_toBottomOf="@id/nameTag">
-    <LinearLayout
-        android:id="@+id/Details"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_8sdp"
-        android:layout_marginEnd="@dimen/_10sdp"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:layout_marginEnd="@dimen/_8sdp"
-            android:fontFamily="@font/sf_bold"
-            android:includeFontPadding="false"
-            android:text="New Post"
-            android:gravity="center"
-            android:textColor="@color/colorPrimaryText"
-            android:textSize="@dimen/_12ssp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_8sdp"
-        android:layout_marginTop="@dimen/_8sdp"
-        android:layout_marginEnd="@dimen/_8sdp"
-        android:fontFamily="@font/sf_regular"
-        android:includeFontPadding="false"
-        android:text="Location"
-        android:textColor="@color/colorPrimaryText"
-        android:textSize="@dimen/_11ssp"/>
-
-    <EditText
-        android:id="@+id/inputLocation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_8sdp"
-        android:layout_marginStart="@dimen/_8sdp"
-        android:layout_marginEnd="@dimen/_8sdp"
-        android:background="@color/colorTextIcons"
-        android:paddingTop="@dimen/_5sdp"
-        android:paddingBottom="@dimen/_5sdp"
-        android:paddingEnd="@dimen/_5sdp"
-        android:fontFamily="@font/sf_regular"
-        android:hint="location"
-        android:imeOptions="actionNext"
-        android:importantForAutofill="no"
-        android:includeFontPadding="false"
-        android:inputType="textMultiLine"
-        android:textColor="@color/colorPrimaryText"
-        android:textColorHint="@color/colorHintText"
-        android:textSize="@dimen/_13ssp"
+        app:layout_constraintTop_toBottomOf="@+id/pp"
         android:layout_marginBottom="@dimen/_10sdp"/>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/addSocialMedia"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/colorTextIcons"
-            app:cardUseCompatPadding="true"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:backgroundTint="@color/colorPrimary"
-            android:layout_marginStart="@dimen/_60sdp"
-            android:layout_marginEnd="@dimen/_60sdp"
-            app:cardCornerRadius="@dimen/_15sdp"
-            app:cardElevation="3dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_margin="@dimen/_5sdp"
-                tools:ignore="UseCompoundDrawables">
-
-                <ImageView
-                    android:layout_width="@dimen/_25sdp"
-                    android:layout_height="@dimen/_25sdp"
-                    android:src="@drawable/ic_image"
-                    app:tint="@color/colorTextIcons"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:contentDescription="@string/app_name" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/sf_bold"
-                    android:text="@string/add_image"
-                    android:textColor="@color/colorTextIcons"
-                    android:textSize="@dimen/_11sdp" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_150sdp"
-            android:maxHeight="150dp"
-            android:id="@+id/previewImage"
-            android:src="@drawable/img"
-            android:contentDescription="@string/app_name"
-            android:layout_marginBottom="@dimen/_10sdp"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="POST"
-            android:id="@+id/postSocialMediaBtn"
-            android:fontFamily="@font/sf_bold"
-            android:textSize="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_10sdp"/>
-    </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-
-
+</LinearLayout>
+    </ScrollView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"

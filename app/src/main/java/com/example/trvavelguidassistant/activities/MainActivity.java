@@ -45,8 +45,11 @@ public class MainActivity extends AppCompatActivity {
 //            startActivity(intent);
 //        });
 
+        //TravelMate
+        findViewById(R.id.cardTravelMate).setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), SocialMediaActivity.class)));
+
         //weather
-        findViewById(R.id.cardWeather).setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), SocialMediaActivity.class)));
+        findViewById(R.id.cardWeather).setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), WeatherMenuActivity.class)));
 
         //scheduler
         findViewById(R.id.cardScheduler).setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),SchedulerActivity.class)));

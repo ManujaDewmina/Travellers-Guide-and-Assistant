@@ -55,8 +55,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class AddSocialMediaActivity extends AppCompatActivity {
 
-    ImageView homeImg,addImg,previewImage;
-    TextView homeText,addText;
+    ImageView homeImg,addImg,previewImage,accountImg;
     private PreferenceManager preferenceManager;
     CardView addSocialMedia;
     Button postSocialMediaBtn;
@@ -115,7 +114,7 @@ public class AddSocialMediaActivity extends AppCompatActivity {
 
         homeImg = findViewById(R.id.homeImg);
         //addImg = findViewById(R.id.addImg);
-        homeText = findViewById(R.id.homeText);
+        accountImg = findViewById(R.id.accountImg);
         //addText = findViewById(R.id.addText);
 
         homeImg.setOnClickListener(new View.OnClickListener() {
@@ -126,10 +125,10 @@ public class AddSocialMediaActivity extends AppCompatActivity {
             }
         });
 
-        homeText.setOnClickListener(new View.OnClickListener() {
+        accountImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AddSocialMediaActivity.this, SocialMediaActivity.class);
+                Intent intent = new Intent(AddSocialMediaActivity.this, SocialMediaAccountActivity.class);
                 startActivity(intent);
             }
         });
