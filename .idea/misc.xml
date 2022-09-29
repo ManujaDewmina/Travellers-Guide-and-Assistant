@@ -38,6 +38,7 @@
         <entry key="..\:/androidApp/TrvavelGuidAssistant/app/src/main/res/layout/activity_settings.xml" value="0.264" />
         <entry key="..\:/androidApp/TrvavelGuidAssistant/app/src/main/res/layout/activity_sign_in.xml" value="0.264" />
         <entry key="..\:/androidApp/TrvavelGuidAssistant/app/src/main/res/layout/activity_sign_up.xml" value="0.264" />
+        <entry key="..\:/androidApp/TrvavelGuidAssistant/app/src/main/res/layout/activity_social_media.xml" value="0.24592391304347827" />
         <entry key="..\:/androidApp/TrvavelGuidAssistant/app/src/main/res/layout/activity_text_recognition.xml" value="0.259375" />
         <entry key="..\:/androidApp/TrvavelGuidAssistant/app/src/main/res/layout/activity_translator.xml" value="0.264" />
         <entry key="..\:/androidApp/TrvavelGuidAssistant/app/src/main/res/layout/activity_travel_log_menu.xml" value="0.259375" />
@@ -52,6 +53,7 @@
         <entry key="..\:/androidApp/TrvavelGuidAssistant/app/src/main/res/layout/item_event.xml" value="0.25181159420289856" />
         <entry key="..\:/androidApp/TrvavelGuidAssistant/app/src/main/res/layout/item_logs.xml" value="0.22327898550724637" />
         <entry key="..\:/androidApp/TrvavelGuidAssistant/app/src/main/res/layout/news_items.xml" value="0.24592391304347827" />
+        <entry key="..\:/androidApp/TrvavelGuidAssistant/app/src/main/res/layout/social_media_item.xml" value="0.24592391304347827" />
         <entry key="..\:/androidApp/TrvavelGuidAssistant/app/src/main/res/layout/spinner_item.xml" value="0.259375" />
         <entry key="..\:/androidApp/TrvavelGuidAssistant/app/src/main/res/layout/weather_shimmer.xml" value="0.2" />
         <entry key="..\:/androidApp/TrvavelGuidAssistant/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1815" />
