@@ -21,6 +21,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".activities.AddSocialMediaActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.SocialMediaActivity"
             android:exported="false" />
         <activity

@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/UserImage"
+            android:id="@+id/userPic"
             android:layout_width="38dp"
             android:layout_height="38dp"
             android:layout_marginTop="@dimen/_2sdp"
@@ -78,7 +78,7 @@
             android:layout_height="300dp">
 
             <ImageView
-                android:id="@+id/mediaImage"
+                android:id="@+id/photo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_background"
-    tools:context=".activities.SocialMediaActivity">
+    tools:context=".activities.AddSocialMediaActivity">
 
     <LinearLayout
         android:id="@+id/layoutHeader"
@@ -39,16 +39,6 @@
             android:layout_marginEnd="@dimen/_8sdp"/>
     </LinearLayout>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/cardView2"
-        app:layout_constraintTop_toBottomOf="@id/layoutHeader">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -79,16 +69,6 @@
             android:textStyle="bold" />
 
     </LinearLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10sdp"
-        app:layout_constraintTop_toBottomOf="@+id/nameTag"
-        android:layout_marginBottom="@dimen/_10sdp"/>
-        </LinearLayout>
-    </ScrollView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
@@ -152,6 +132,5 @@
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

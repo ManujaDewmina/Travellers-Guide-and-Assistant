@@ -42,6 +42,13 @@ public class SocialMediaAdapter extends RecyclerView.Adapter<SocialMediaAdapter.
         SocialMediaModel socialMediaModel = items1.get(position);
         holder.userName.setText(socialMediaModel.getUserName());
         holder.location.setText(socialMediaModel.getLocation());
+
+        String imageURL1 = socialMediaModel.getUserPic();
+        Picasso.get().load(imageURL1).into(holder.userPic);
+
+        String imageURL2 = socialMediaModel.getPhoto();
+        Picasso.get().load(imageURL2).into(holder.photo);
+
     }
 
     @Override
@@ -52,11 +59,14 @@ public class SocialMediaAdapter extends RecyclerView.Adapter<SocialMediaAdapter.
     public static class socialMediaVH extends RecyclerView.ViewHolder {
 
         TextView userName,location;
+        ImageView userPic,photo;
 
         public socialMediaVH(@NonNull View itemView) {
             super(itemView);
             userName = itemView.findViewById(R.id.userName);
             location = itemView.findViewById(R.id.location);
+            userPic = itemView.findViewById(R.id.userPic);
+            photo = itemView.findViewById(R.id.photo);
         }
     }
 }

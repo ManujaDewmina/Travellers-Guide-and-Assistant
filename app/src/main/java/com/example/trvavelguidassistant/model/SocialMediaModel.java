@@ -2,18 +2,34 @@ package com.example.trvavelguidassistant.model;
 
 public class SocialMediaModel {
     String userName;
-    //String imageUrlSM;
+    String photo;
     String location;
-    //String userPic;
+    String userPic;
 
     public SocialMediaModel() {
     }
 
     public SocialMediaModel(String userName, String location) {
         this.userName = userName;
-        //this.imageUrlSM = imageUrl;
+        this.photo = photo;
         this.location = location;
-        //this.userPic = userPic;
+        this.userPic = userPic;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public String getUserPic() {
+        return userPic;
+    }
+
+    public void setUserPic(String userPic) {
+        this.userPic = userPic;
     }
 
     public String getUserName() {
