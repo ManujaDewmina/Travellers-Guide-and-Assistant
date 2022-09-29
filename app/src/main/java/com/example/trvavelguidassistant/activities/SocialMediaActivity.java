@@ -2,6 +2,7 @@ package com.example.trvavelguidassistant.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,6 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class SocialMediaActivity extends AppCompatActivity {
 
@@ -61,6 +63,9 @@ public class SocialMediaActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+
 
         //homeImg = findViewById(R.id.homeImg);
         addImg = findViewById(R.id.addImg);
@@ -108,6 +113,43 @@ public class SocialMediaActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+
+        //search
+        SearchView searchView1 = findViewById(R.id.searchView1);
+        searchView1.clearFocus();
+        searchView1.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                databaseReference5.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        SMList.clear();
+                        for(DataSnapshot dataSnapshot :snapshot.getChildren()){
+                            String value = dataSnapshot.child("userName").getValue(String.class);
+                            value = value.toLowerCase(Locale.ROOT);
+                            String value2 = dataSnapshot.child("location").getValue(String.class);
+                            value2 = value2.toLowerCase(Locale.ROOT);
+                            if (value.contains(newText.toLowerCase(Locale.ROOT)) || value2.contains(newText.toLowerCase(Locale.ROOT))){
+                                SocialMediaModel socialMediaModel = dataSnapshot.getValue(SocialMediaModel.class);
+                                SMList.add(socialMediaModel);
+                            }
+                            socialMediaAdapter.notifyDataSetChanged();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                return true;
             }
         });
     }

@@ -41,7 +41,7 @@ public class SocialMediaAccountActivity extends AppCompatActivity {
     TextView profileUserName;
     private StorageReference storageReference;
     RecyclerView recyclerView4;
-    SocialMediaAdapter socialMediaAdapter1;
+    SocialMediaAdapter profileAdapter1;
     ArrayList<SocialMediaModel> SMList1;
 
     @Override
@@ -122,8 +122,8 @@ public class SocialMediaAccountActivity extends AppCompatActivity {
         recyclerView4.setLayoutManager(new LinearLayoutManager(this));
 
         SMList1 = new ArrayList<>();
-        socialMediaAdapter1 = new SocialMediaAdapter(this,SMList1);
-        recyclerView4.setAdapter(socialMediaAdapter1);
+        profileAdapter1 = new SocialMediaAdapter(this,SMList1);
+        recyclerView4.setAdapter(profileAdapter1);
 
 
         databaseReference6.addValueEventListener(new ValueEventListener() {
@@ -131,10 +131,14 @@ public class SocialMediaAccountActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 SMList1.clear();
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    SocialMediaModel socialMediaModel = dataSnapshot.getValue(SocialMediaModel.class);
-                    SMList1.add(socialMediaModel);
+                    String value = dataSnapshot.child("userName").getValue(String.class);
+                    assert value != null;
+                    if(value.equals(textTitle.getText().toString())) {
+                        SocialMediaModel socialMediaModel = dataSnapshot.getValue(SocialMediaModel.class);
+                        SMList1.add(socialMediaModel);
+                    }
                 }
-                socialMediaAdapter1.notifyDataSetChanged();
+                profileAdapter1.notifyDataSetChanged();
             }
 
             @Override
