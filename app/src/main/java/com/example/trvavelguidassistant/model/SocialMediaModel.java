@@ -5,15 +5,35 @@ public class SocialMediaModel {
     String photo;
     String location;
     String userPic;
+    Long likeCount;
+    String key5;
 
     public SocialMediaModel() {
     }
 
-    public SocialMediaModel(String userName, String location) {
+    public SocialMediaModel(String userName, String location,String photo, String userPic,Long likeCount,String key5) {
         this.userName = userName;
         this.photo = photo;
         this.location = location;
         this.userPic = userPic;
+        this.likeCount =likeCount;
+        this.key5 = key5;
+    }
+
+    public String getKey5() {
+        return key5;
+    }
+
+    public void setKey5(String key5) {
+        this.key5 = key5;
+    }
+
+    public Long getLikeCount() {
+        return likeCount;
+    }
+
+    public void setLikeCount(Long likeCount) {
+        this.likeCount = likeCount;
     }
 
     public String getPhoto() {

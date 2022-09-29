@@ -169,6 +169,8 @@ public class AddSocialMediaActivity extends AppCompatActivity {
                     String name = textTitle.getText().toString();
                     postSocialMediaDatabase.child("location").setValue(lc);
                     postSocialMediaDatabase.child("userName").setValue(name);
+                    postSocialMediaDatabase.child("likeCount").setValue(0);
+                    postSocialMediaDatabase.child("key5").setValue(key);
 
                     String userID = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
 

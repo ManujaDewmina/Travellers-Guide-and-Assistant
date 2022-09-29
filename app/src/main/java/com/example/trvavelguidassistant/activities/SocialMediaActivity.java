@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.trvavelguidassistant.R;
 import com.example.trvavelguidassistant.adapter.LogAdapter;
@@ -19,6 +20,7 @@ import com.example.trvavelguidassistant.adapter.SocialMediaAdapter;
 import com.example.trvavelguidassistant.model.LogModel;
 import com.example.trvavelguidassistant.model.SocialMediaModel;
 import com.example.trvavelguidassistant.utilities.Constants;
+import com.example.trvavelguidassistant.utilities.LikeSocialMediaSelectItem;
 import com.example.trvavelguidassistant.utilities.PreferenceManager;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,7 +31,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class SocialMediaActivity extends AppCompatActivity {
+public class SocialMediaActivity extends AppCompatActivity implements LikeSocialMediaSelectItem {
 
     RecyclerView recyclerView3;
     private PreferenceManager preferenceManager;
@@ -91,11 +93,15 @@ public class SocialMediaActivity extends AppCompatActivity {
         recyclerView3 = findViewById(R.id.recyclerView3);
         DatabaseReference databaseReference5 = FirebaseDatabase.getInstance().getReference("SocialMedia");
 
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        layoutManager.setReverseLayout(true);
+        layoutManager.setStackFromEnd(true);
         recyclerView3.setHasFixedSize(true);
-        recyclerView3.setLayoutManager(new LinearLayoutManager(this));
+
+        recyclerView3.setLayoutManager(layoutManager);
 
         SMList = new ArrayList<>();
-        socialMediaAdapter = new SocialMediaAdapter(this,SMList);
+        socialMediaAdapter = new SocialMediaAdapter(this,SMList,this);
         recyclerView3.setAdapter(socialMediaAdapter);
 
 
@@ -159,5 +165,14 @@ public class SocialMediaActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
+    }
+
+    @Override
+    public void onItemClicked(SocialMediaModel socialMediaModel) {
+        Long count = socialMediaModel.getLikeCount() +1;
+
+        DatabaseReference databaseReference6 = FirebaseDatabase.getInstance().getReference("SocialMedia");
+        databaseReference6 = databaseReference6.child(socialMediaModel.getKey5());
+        databaseReference6.child("likeCount").setValue(count);
     }
 }
