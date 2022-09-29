@@ -14,6 +14,7 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -29,17 +30,28 @@ import android.widget.Toast;
 import com.example.trvavelguidassistant.R;
 import com.example.trvavelguidassistant.utilities.Constants;
 import com.example.trvavelguidassistant.utilities.PreferenceManager;
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.gms.vision.Frame;
 import com.google.android.gms.vision.text.TextBlock;
 import com.google.android.gms.vision.text.TextRecognizer;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.util.Objects;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class AddSocialMediaActivity extends AppCompatActivity {
 
@@ -50,6 +62,8 @@ public class AddSocialMediaActivity extends AppCompatActivity {
     Button postSocialMediaBtn;
     EditText inputLocation;
     private Boolean checkImage = false;
+
+    SweetAlertDialog pDialog;
 
     DatabaseReference postSocialMediaDatabase;
 
@@ -63,15 +77,19 @@ public class AddSocialMediaActivity extends AppCompatActivity {
 
     Uri uri1;
     Uri image_uri;
+    FirebaseAuth mAuth;
 
     private FirebaseStorage storage1;
-    private StorageReference storageReference1;
+    private StorageReference storageReference1,storageReference2;
+
+    Timer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_social_media);
 
+        mAuth = FirebaseAuth.getInstance();
         preferenceManager = new PreferenceManager(getApplicationContext());
 
         //set header bar name
@@ -92,6 +110,8 @@ public class AddSocialMediaActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        setUpProgressDialog();
 
         homeImg = findViewById(R.id.homeImg);
         //addImg = findViewById(R.id.addImg);
@@ -119,6 +139,9 @@ public class AddSocialMediaActivity extends AppCompatActivity {
 
         storage1 = FirebaseStorage.getInstance();
         storageReference1 = storage1.getReference().child("Social_Media");
+
+        storageReference2 = storage1.getReference().child("Profile_Picture");
+
         postSocialMediaBtn = findViewById(R.id.postSocialMediaBtn);
         previewImage = findViewById(R.id.previewImage);
 
@@ -146,35 +169,73 @@ public class AddSocialMediaActivity extends AppCompatActivity {
                     String lc = inputLocation.getText().toString();
                     String name = textTitle.getText().toString();
                     postSocialMediaDatabase.child("location").setValue(lc);
-                    //postSocialMediaDatabase.child("photo").setValue(title);
                     postSocialMediaDatabase.child("userName").setValue(name);
-                    //postSocialMediaDatabase.child("userPic").setValue(sTime);
 
-                    final ProgressDialog pd = new ProgressDialog(AddSocialMediaActivity.this);
-                    pd.setTitle("Uploading");
-                    pd.show();
+                    String userID = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
+
+                    StorageReference imageRef2 = storageReference2.child(userID+".jpg");
+
+                    imageRef2.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            postSocialMediaDatabase.child("userPic").setValue(uri.toString());
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception exception) {
+                        }
+                    });
+
+                    pDialog.setTitleText("Uploading");
+                    pDialog.show();
 
                     StorageReference imageRef1 = storageReference1.child(key+".jpg");
 
                     imageRef1.putFile(uri1)
                             .addOnSuccessListener(taskSnapshot -> {
-                                pd.dismiss();
+                                pDialog.dismissWithAnimation();
+
+                                imageRef1.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    @Override
+                                    public void onSuccess(Uri uri) {
+                                        postSocialMediaDatabase.child("photo").setValue(uri.toString());
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception exception) {
+                                    }
+                                });
+
                                 Toast.makeText(AddSocialMediaActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
                             })
                             .addOnFailureListener(e -> {
-                                pd.dismiss();
+                                pDialog.dismissWithAnimation();
                                 Toast.makeText(AddSocialMediaActivity.this, "Failed to upload", Toast.LENGTH_SHORT).show();
                             }).addOnProgressListener(snapshot -> {
-                        double ProgressPercentage = (100.00 * snapshot.getBytesTransferred()/snapshot.getTotalByteCount());
-                        pd.setMessage("Progress: "+ (int) ProgressPercentage+"%");
+                                pDialog.setTitleText("Uploading");
+                                pDialog.show();
                     });
+                    timer = new Timer();
+                    timer.schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            Intent intent =new Intent(AddSocialMediaActivity.this,SocialMediaActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    }, 5000);
 
-                    Intent intent = new Intent(AddSocialMediaActivity.this, SocialMediaActivity.class);
-                    startActivity(intent);
                 }
             }
         });
 
+    }
+
+    private void setUpProgressDialog() {
+        pDialog = new SweetAlertDialog(AddSocialMediaActivity.this, SweetAlertDialog.PROGRESS_TYPE);
+        pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
+        pDialog.setTitleText("Loading");
+        pDialog.setCancelable(false);
     }
 
     @Override

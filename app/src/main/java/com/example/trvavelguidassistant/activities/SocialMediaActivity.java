@@ -93,10 +93,11 @@ public class SocialMediaActivity extends AppCompatActivity {
         socialMediaAdapter = new SocialMediaAdapter(this,SMList);
         recyclerView3.setAdapter(socialMediaAdapter);
 
+
         databaseReference5.addValueEventListener(new ValueEventListener() {
-            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                SMList.clear();
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                     SocialMediaModel socialMediaModel = dataSnapshot.getValue(SocialMediaModel.class);
                     SMList.add(socialMediaModel);
