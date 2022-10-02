@@ -216,16 +216,9 @@ public class AddSocialMediaActivity extends AppCompatActivity {
                                 pDialog.setTitleText("Uploading");
                                 pDialog.show();
                     });
-                    timer = new Timer();
-                    timer.schedule(new TimerTask() {
-                        @Override
-                        public void run() {
                             Intent intent =new Intent(AddSocialMediaActivity.this,SocialMediaActivity.class);
                             startActivity(intent);
                             finish();
-                        }
-                    }, 5000);
-
                 }
             }
         });
